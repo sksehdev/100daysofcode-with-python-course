@@ -2,33 +2,16 @@ class Roll:
 
     def __init__(self, roll_name):
         self.roll_name = roll_name
-
+        self.rules = {"Rock": ["Scissors"], "Paper": ["Rock"], "Scissors": ["Paper"]}
+        self.opponent = ""
 
     def can_defeat(self, opponent_roll):
         self.opponent = opponent_roll.roll_name
-        if self.roll_name == "Rock" and self.opponent == "Paper":
-            print("{} will be defeated by {}".format(self.roll_name, self.opponent))
-            return False
-        if self.roll_name == "Rock" and self.opponent == "Scissors":
-            print("{} will defeat the {}".format(self.roll_name, self.opponent))
-            return True
-        if self.roll_name == "Paper" and self.opponent == "Scissors":
-            print("{} will be defeated by {}".format(self.roll_name, self.opponent))
-            return False
-        if self.roll_name == "Paper" and self.opponent == "Rock":
-            print("{} will defeat the {}".format(self.roll_name, self.opponent))
-            return True
-        if self.roll_name == "Paper" and self.opponent == "Rock":
-            print("{} will defeat the {}".format(self.roll_name, self.opponent))
-            return True
-        if self.roll_name == "Scissors" and self.opponent == "Rock":
-            print("{} will be defeated by {}".format(self.roll_name, self.opponent))
-            return False
-        if self.roll_name == "Scissors" and self.opponent == "Paper":
-            print("{} will defeat the {}".format(self.roll_name, self.opponent))
-            return True
         if self.roll_name == self.opponent:
             return None
+        else:
+            return self.opponent in self.rules[self.roll_name]
+
 
 class Player:
 
