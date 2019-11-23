@@ -48,7 +48,7 @@ def food_status(scd_list: list):
     elif food in scd_legal_items:
         print(f'{food} is Legal')
     else:
-        print(f'{food} is present in SCD list')
+        print(f'{food} is not present in SCD list')
 
 
 if __name__ == "__main__":
