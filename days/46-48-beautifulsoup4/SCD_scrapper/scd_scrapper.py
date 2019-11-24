@@ -52,9 +52,10 @@ def food_status(scd_list: list):
 
 
 if __name__ == "__main__":
-    reload = input("Do you reload the list from SCD website? Reply Y to reload : ")
+    reload = input("Do you want to reload the list from SCD website? Reply Y to reload : ")
     if reload == "Y":
         scd_list_reload = list_of_foods()
         write_list_to_json(scd_list_reload)
-    cached_scd_list = load_scd_list()
-    food_status(cached_scd_list)
+    while True:
+        cached_scd_list = load_scd_list()
+        food_status(cached_scd_list)
